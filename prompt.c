@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/29 03:47:37 by nsierra-          #+#    #+#             */
-/*   Updated: 2013/12/29 13:39:51 by nsierra-         ###   ########.fr       */
+/*   Updated: 2013/12/29 16:00:29 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ int				prompt(t_env *e)
 		ft_putstr("$> ");
 		if (get_next_line(1, &e->usr_input) > 0)
 		{
-			deal_with_input(e, ft_strsplit(e->usr_input, ' ', 0));
+			if (e->usr_input[0] != '\0')
+				deal_with_input(e, ft_strsplit(e->usr_input, ' ', 0));
 			clean_env(e);
 		}
 	}
