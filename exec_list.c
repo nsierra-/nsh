@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   exec_list.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/26 09:03:06 by nsierra-          #+#    #+#             */
-/*   Updated: 2013/12/29 13:37:51 by nsierra-         ###   ########.fr       */
+/*   Created: 2013/12/29 10:02:04 by nsierra-          #+#    #+#             */
+/*   Updated: 2013/12/29 10:54:26 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
+#include "minishell1.h"
 
-static size_t		ft_strlen(const char *s)
+t_lexec				*add(t_env *e, char *name, char *path, int x_ok)
 {
-	char			*save;
+	t_lexec			*new_elem;
 
-	save = (char*)s;
-	while (*save != '\0')
-		++save;
-	return (save - s);
-}
-
-void			ft_putendl(char const *s)
-{
-	write(1, s, ft_strlen(s));
-	write(1, "\n", 1);
-}
-
-void			ft_putstr(char const *s)
-{
-	write(1, s, ft_strlen(s));
+	new_elem = NULL;
+	if (!(new_elem = malloc(sizeof(t_lexec))))
+		return (NULL);
+	if (e->lexec == NULL)
+		new_elem->next = NULL;
+	else
+		new_elem->next = e->lexec;
+	new_elem->name = name;
+	new_elem->path = path;
+	new_elem->x_ok = x_ok;
+	return (new_elem);
 }

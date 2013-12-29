@@ -6,35 +6,16 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/22 23:19:02 by nsierra-          #+#    #+#             */
-/*   Updated: 2013/12/26 10:30:54 by nsierra-         ###   ########.fr       */
+/*   Updated: 2013/12/29 02:11:53 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static char	*ft_strsub(char const *s, unsigned int start, size_t len)
+static int		word_count(const char *s, char c)
 {
-	char	*new;
-	size_t	i;
-
-	i = start;
-	if (s == NULL)
-		return (NULL);
-	new = (char *)malloc(sizeof(char) * (len + 1));
-	if (new == NULL)
-		return (NULL);
-	while (i < (start + len))
-	{
-		new[i - start] = s[i];
-		i++;
-	}
-	new[i - start] = '\0';
-	return (new);
-}
-static int	word_count(const char *s, char c)
-{
-	int		i;
-	int		j;
+	int			i;
+	int			j;
 
 	i = 0;
 	j = 0;
@@ -55,7 +36,7 @@ static int	word_count(const char *s, char c)
 	return (j);
 }
 
-static int	word_len(const char *s, int i, int j, char c)
+static int		word_len(const char *s, int i, int j, char c)
 {
 	while (s[i] != c && s[i])
 	{
@@ -65,12 +46,32 @@ static int	word_len(const char *s, int i, int j, char c)
 	return (j);
 }
 
-char        **ft_strsplit(char const *s, char c, int start)
+char			*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	char	**ret;
-	int		i;
-	int		k;
-	int		word;
+	char		*new;
+	size_t		i;
+
+	i = start;
+	if (s == NULL)
+		return (NULL);
+	new = (char *)malloc(sizeof(char) * (len + 1));
+	if (new == NULL)
+		return (NULL);
+	while (i < (start + len))
+	{
+		new[i - start] = s[i];
+		i++;
+	}
+	new[i - start] = '\0';
+	return (new);
+}
+
+char			**ft_strsplit(char const *s, char c, int start)
+{
+	char		**ret;
+	int			i;
+	int			k;
+	int			word;
 
 	if (!s)
 		return (0);
@@ -91,4 +92,14 @@ char        **ft_strsplit(char const *s, char c, int start)
 		++k;
 	}
 	return (ret);
+}
+
+size_t			ft_strlen(const char *s)
+{
+	char		*save;
+
+	save = (char*)s;
+	while (*save != '\0')
+		++save;
+	return (save - s);
 }

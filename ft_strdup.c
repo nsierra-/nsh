@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/26 09:03:06 by nsierra-          #+#    #+#             */
-/*   Updated: 2013/12/29 13:37:51 by nsierra-         ###   ########.fr       */
+/*   Created: 2013/12/29 10:50:59 by nsierra-          #+#    #+#             */
+/*   Updated: 2013/12/29 12:18:30 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
 static size_t		ft_strlen(const char *s)
 {
@@ -22,13 +22,23 @@ static size_t		ft_strlen(const char *s)
 	return (save - s);
 }
 
-void			ft_putendl(char const *s)
+char				*ft_strdup(const char *s1)
 {
-	write(1, s, ft_strlen(s));
-	write(1, "\n", 1);
-}
+	char			*dup;
+	int				i;
 
-void			ft_putstr(char const *s)
-{
-	write(1, s, ft_strlen(s));
+	i = 0;
+	dup = malloc(sizeof(char) * (ft_strlen(s1) + 1));
+	if (dup == NULL)
+		return (NULL);
+	else
+	{
+		while (s1[i] != '\0')
+		{
+			dup[i] = s1[i];
+			i = i + 1;
+		}
+	}
+	dup[i] = '\0';
+	return (dup);
 }

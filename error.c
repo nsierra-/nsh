@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/26 09:03:06 by nsierra-          #+#    #+#             */
-/*   Updated: 2013/12/29 13:37:51 by nsierra-         ###   ########.fr       */
+/*   Created: 2013/12/29 15:04:29 by nsierra-          #+#    #+#             */
+/*   Updated: 2013/12/29 15:04:31 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "minishell1.h"
 
-static size_t		ft_strlen(const char *s)
+int				error(int must_exit, char *err_message)
 {
-	char			*save;
-
-	save = (char*)s;
-	while (*save != '\0')
-		++save;
-	return (save - s);
-}
-
-void			ft_putendl(char const *s)
-{
-	write(1, s, ft_strlen(s));
-	write(1, "\n", 1);
-}
-
-void			ft_putstr(char const *s)
-{
-	write(1, s, ft_strlen(s));
+	ft_putendl(err_message);
+	if (must_exit == TRUE)
+		return (EXIT_FAILURE);
+	else
+		return (SUCCESS);
 }

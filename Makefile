@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/15 20:50:12 by nsierra-          #+#    #+#              #
-#    Updated: 2013/12/26 09:27:43 by nsierra-         ###   ########.fr        #
+#    Updated: 2013/12/29 11:49:35 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,18 @@ SRC = ft_putstr.c \
 	  ft_strcmp.c \
 	  gnl.c \
 	  main.c \
-	  ft_strsplit.c
+	  ft_strsplit.c \
+	  prompt.c \
+	  error.c \
+	  ft_makepath.c \
+	  exec_list.c \
+	  ft_strdup.c
 
 OBJ = $(SRC:.c=.o)
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -pedantic
+CFLAGS = -Wall -Wextra -Werror -pedantic -g3
 
 all: $(NAME)
 
