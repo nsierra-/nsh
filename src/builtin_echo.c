@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/01 02:40:36 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/03/26 17:07:31 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/04/24 04:13:17 by amaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int					builtin_echo(t_env *e, char **args)
 {
 	t_bool			no_newline;
 
-	e = e;
+	(void)e;
 	no_newline = false;
 	if (!valid_input_or_die((const char **)args))
 		return (0);

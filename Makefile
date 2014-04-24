@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/03/02 08:22:33 by nsierra-          #+#    #+#              #
-#    Updated: 2014/04/24 02:09:59 by nsierra-         ###   ########.fr        #
+#    Updated: 2014/04/24 04:12:21 by amaurer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,23 +50,7 @@ SRC			=	$(addprefix src/, $(SRC_FILES))
 INC			=	$(addprefix inc/, $(INC_FILES))
 OBJ			=	$(SRC:.c=.o)
 CC			=	gcc
-CFLAGS		=	-g3 -pedantic-errors -Wextra  -Wall  -Waggregate-return \
-				-Waggressive-loop-optimizations -Wno-attributes -Wcast-align  \
-				-Wconversion -Wcoverage-mismatch -Wdate-time \
-				-Wno-cpp -Wdisabled-optimization -Wdouble-promotion -Werror \
-				-Wfloat-equal  -Wformat-nonliteral -Wformat-security  \
-				-Wformat-y2k -Wjump-misses-init -Wimplicit  -Winit-self  \
-				-Winline -Winvalid-pch -Wunsafe-loop-optimizations \
-				-Wlogical-op -Wlong-long -Wmissing-include-dirs \
-				-Woverlength-strings  -Wpacked  -Wpacked-bitfield-compat \
-				-Wpointer-arith  -Wredundant-decls  -Wshadow -Wsign-conversion \
-				-Wfloat-conversion -Wsizeof-pointer-memaccess \
-				-Wstack-protector -Wstrict-overflow -Wmissing-format-attribute \
-				-Wswitch-default  -Wswitch-enum -Wsync-nand -Wtrampolines \
-				-Wundef -Wunsuffixed-float-constants -Wunused  \
-				-Wunused-local-typedefs -Wunused-but-set-variable \
-				-Wvariadic-macros -Wvector-operation-performance -Wvla \
-				-Wwrite-strings
+CFLAGS		=	-g3 -Wall -Wextra -Werror
 LDFLAGS		=	-I./inc/
 
 all:			$(NAME)
