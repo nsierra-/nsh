@@ -6,7 +6,7 @@
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/26 17:03:35 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/04/24 03:35:27 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/04/27 19:46:38 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define BASIC_ENV_SIZE 3
 # define QTY_SHELL_VAR 5
 # define PROMPT_MAX_SIZE 512
+# define S_DIRENT struct dirent
 
 typedef enum		e_bool
 {

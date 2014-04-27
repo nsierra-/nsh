@@ -6,7 +6,7 @@
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/23 20:39:14 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/04/24 03:46:05 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/04/27 19:46:47 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static char			*validate_file(char *path, int errors)
 static char			*find_bin(char *path, char *bin)
 {
 	DIR				*dirp;
-	struct dirent	*dirent;
+	S_DIRENT		*dirent;
 
 	if (!(dirp = opendir(path)))
 		return (NULL);

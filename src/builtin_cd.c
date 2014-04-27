@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/11 02:20:14 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/04/23 19:45:20 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/04/27 19:51:44 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
-#include <errno.h>
 #include <stdio.h>
 #include "libft.h"
 #include "env.h"
@@ -55,12 +54,7 @@ static int			valid_path(const char *path)
 	struct stat		stats;
 
 	if (lstat(path, &stats) == -1)
-	{
-		if (errno == ENOENT)
-			return (ft_print(ERROR(CD, E_PATHNEXISTS), 2, 0));
-		else
-			return (ft_print(ERROR(CD, E_GENERIC), 2, 0));
-	}
+		return (ft_print(ERROR(CD, E_GENERIC), 2, 0));
 	else
 	{
 		if (S_ISDIR(stats.st_mode))
