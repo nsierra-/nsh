@@ -6,11 +6,11 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/03/02 08:22:33 by nsierra-          #+#    #+#              #
-#    Updated: 2014/04/24 04:12:21 by amaurer          ###   ########.fr        #
+#    Updated: 2014/05/12 17:31:32 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	ft_minishell1
+NAME		=	ft_minishell2
 INC_FILES	=	qd_sh.h \
 				builtin_cd.h \
 				env.h \

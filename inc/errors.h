@@ -6,7 +6,7 @@
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/26 17:04:55 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/04/24 03:45:51 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/05/12 18:01:44 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define EXPAND(A, B) # A # B
 # define ERROR(A, B) EXPAND(A, B)
-# define SH 42sh :\t
+# define SH ft_minishell2 :\t
 # define SETENV setenv :\t
 # define UNSETENV unsetenv :\t
 # define ECHO echo :t
