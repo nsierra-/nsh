@@ -6,16 +6,17 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/03/02 08:22:33 by nsierra-          #+#    #+#              #
-#    Updated: 2014/05/12 17:31:32 by nsierra-         ###   ########.fr        #
+#    Updated: 2014/05/15 03:00:07 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	ft_minishell2
+
 INC_FILES	=	qd_sh.h \
 				builtin_cd.h \
 				env.h \
-				errors.h \
-				libft.h
+				errors.h
+
 SRC_FILES	=	builtin_cd.c \
 				builtin_env.c \
 				builtin_echo.c \
@@ -30,41 +31,35 @@ SRC_FILES	=	builtin_cd.c \
 				execution.c \
 				find_and_exec.c \
 				exec_binary_from_path.c \
-				ft_pathbuilder.c \
 				main.c \
-				ft_atoi.c \
-				ft_freer.c \
-				ft_isvalid.c \
-				ft_print.c \
-				ft_putchar.c \
-				ft_putendl.c \
-				ft_sisnum.c \
-				ft_strdup.c \
-				ft_strlen.c \
-				ft_strncmp.c \
-				ft_strcat.c \
-				ft_split.c \
-				ft_putstr.c \
 				gnl.c
+
 SRC			=	$(addprefix src/, $(SRC_FILES))
 INC			=	$(addprefix inc/, $(INC_FILES))
 OBJ			=	$(SRC:.c=.o)
+
 CC			=	gcc
+MAKE		=	make
+
 CFLAGS		=	-g3 -Wall -Wextra -Werror
-LDFLAGS		=	-I./inc/
+IFLAGS		=	-I./inc/ -I./libft/
+LDFLAGS		=	-L./libft/ -lft
 
 all:			$(NAME)
 
 $(NAME):		$(INC) $(OBJ)
-				$(CC) $(CFLAGS) $(OBJ) -o $@
+				$(MAKE) -C libft/
+				$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ) -o $@
 
 %.o:			%.c
-				$(CC) $(CFLAGS) $(LDFLAGS) -c $< -o $@
+				$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 clean:
+				$(MAKE) -C libft/ clean
 				rm -rf $(OBJ)
 
 fclean:			clean
+				$(MAKE) -C libft/ fclean
 				rm -f $(NAME)
 
 re:				fclean all
