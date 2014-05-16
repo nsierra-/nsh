@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execution.c                                        :+:      :+:    :+:   */
+/*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/27 05:00:03 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/05/16 03:13:13 by nsierra-         ###   ########.fr       */
+/*   Created: 2014/05/16 03:30:56 by nsierra-          #+#    #+#             */
+/*   Updated: 2014/05/16 05:11:04 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "errors.h"
-#include "libft.h"
-#include "gnl.h"
-#include "env.h"
-#include "qd_sh.h"
+#ifndef PARSER_H
+# define PARSER_H
+# include <tokens.h>
 
-int					execution(t_env *e)
+typedef struct				s_token
 {
-	unsigned int	stop;
-	char			**usr_input;
+	char					*id;
+	size_t					size;
+}							t_token;
 
-	stop = false;
-	while (!stop)
-	{
-		if (!(usr_input = prompt(e, &stop)))
-			return (ft_print(ERROR(SH, E_GENERIC), 2, 0));
-		else if (usr_input[0])
-			find_and_exec(e, usr_input);
-		env_destroy(usr_input);
-	}
-	return (1);
-}
+static t_token g_tok[] =
+{
+	{ TOK_HEREDOC, 2 },
+	{ TOK_APPEND, 2 },
+	{ TOK_REDIR_IN, 1 },
+	{ TOK_REDIR_OUT, 1 },
+	{ TOK_PIPE, 1 },
+	{ TOK_SEMICOL, 1 },
+	{ NULL }
+};
+
+#endif

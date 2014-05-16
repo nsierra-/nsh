@@ -6,7 +6,7 @@
 #    By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/05/15 02:46:59 by nsierra-          #+#    #+#              #
-#    Updated: 2014/05/15 03:04:40 by nsierra-         ###   ########.fr        #
+#    Updated: 2014/05/16 05:07:08 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ SRC			=	ft_atoi.c \
 				ft_strcmp.c \
 				ft_strdup.c \
 				ft_strlen.c \
-				ft_strncmp.c
+				ft_strncmp.c \
+				ft_strclean.c
 
 OBJ			=	$(SRC:.c=.o)
 

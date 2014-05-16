@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/03/02 08:22:33 by nsierra-          #+#    #+#              #
-#    Updated: 2014/05/15 03:00:07 by nsierra-         ###   ########.fr        #
+#    Updated: 2014/05/16 05:09:58 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,10 @@ NAME		=	ft_minishell2
 INC_FILES	=	qd_sh.h \
 				builtin_cd.h \
 				env.h \
-				errors.h
+				errors.h \
+				gnl.h \
+				parser.h \
+				tokens.h
 
 SRC_FILES	=	builtin_cd.c \
 				builtin_env.c \
@@ -31,6 +34,7 @@ SRC_FILES	=	builtin_cd.c \
 				execution.c \
 				find_and_exec.c \
 				exec_binary_from_path.c \
+				prompt.c \
 				main.c \
 				gnl.c
 

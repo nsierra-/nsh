@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execution.c                                        :+:      :+:    :+:   */
+/*   ft_strclean.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/27 05:00:03 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/05/16 03:13:13 by nsierra-         ###   ########.fr       */
+/*   Created: 2014/05/16 03:16:36 by nsierra-          #+#    #+#             */
+/*   Updated: 2014/05/16 03:18:49 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "errors.h"
-#include "libft.h"
-#include "gnl.h"
-#include "env.h"
-#include "qd_sh.h"
+#include <stddef.h>
 
-int					execution(t_env *e)
+void		ft_strclean(char *str, size_t len)
 {
-	unsigned int	stop;
-	char			**usr_input;
+	size_t	i;
 
-	stop = false;
-	while (!stop)
-	{
-		if (!(usr_input = prompt(e, &stop)))
-			return (ft_print(ERROR(SH, E_GENERIC), 2, 0));
-		else if (usr_input[0])
-			find_and_exec(e, usr_input);
-		env_destroy(usr_input);
-	}
-	return (1);
+	i = 0;
+	while (i < len)
+		str[i++] = '\0';
 }

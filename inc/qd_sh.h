@@ -6,7 +6,7 @@
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/26 17:03:35 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/04/27 19:46:38 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/05/16 03:24:12 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define QD_SH_H
 # define BASIC_ENV_SIZE 3
 # define QTY_SHELL_VAR 5
-# define PROMPT_MAX_SIZE 512
+# define PROMPT_MAX_SIZE 40
+# define MAX_INPUT_SIZE 1024
 # define S_DIRENT struct dirent
 
 typedef enum		e_bool
@@ -74,5 +75,6 @@ int					find_and_exec(t_env *e, char **usr_input);
 int					exec_binary_from_path(char *path, char **env, char **argv,
 											int *not_found);
 int					ft_print(const char *str, int fd, int ret);
+char				**prompt(t_env *e, unsigned int *stop);
 
 #endif
