@@ -6,11 +6,12 @@
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/16 03:11:43 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/05/16 06:20:17 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/05/18 23:41:16 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stddef.h>
+#include <parser.h>
 #include <libft.h>
 #include <gnl.h>
 #include <qd_sh.h>
@@ -34,4 +35,3 @@ char			**prompt(t_env *e, unsigned int *stop)
 	free(line);
 	return (line_splitted);
 }
-

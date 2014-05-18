@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/11 02:20:14 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/04/27 19:51:44 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/05/16 06:40:15 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,8 @@ static int			chdir_to_home(t_env *e)
 	char			*homepath;
 
 	homepath = NULL;
-	if (!(homepath = e->home) && !(homepath = env_get_var(e->env, "HOME")))
+	if (!(homepath = e->home) &&
+			!(homepath = env_get_var(e->env, "HOME")))
 		return (ft_print(ERROR(CD, E_NOHOME), 2, 0));
 	else if (chdir(homepath) < 0)
 		return (0);
@@ -121,8 +122,8 @@ int					builtin_cd(t_env *e, char **args)
 	args_setenv = create_args(3, "setenv", "OLDPWD", e->cwd);
 	builtin_setenv(e, args_setenv);
 	env_destroy(args_setenv);
-	e->cwd = NULL;
-	if (!(e->cwd = NULL) && !(e->cwd = getcwd(e->cwd, (size_t)0)))
+	if (!(e->cwd = NULL) &&
+			!(e->cwd = getcwd(e->cwd, 0)))
 		ft_print(ERROR(CD, E_CWDBROK), 2, 0);
 	args_setenv = create_args(3, "setenv", "PWD", e->cwd);
 	builtin_setenv(e, args_setenv);

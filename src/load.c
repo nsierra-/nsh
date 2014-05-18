@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/27 00:36:55 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/03/27 07:06:11 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/05/16 06:48:01 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,6 @@
 #include "libft.h"
 #include "env.h"
 
-/*
-**
-** EMPTY ENVIRON MODE (A.K.A "SURVIVAL MODE")
-** +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
-**
-** Manually sets a basic env variable into e->env (using builtin_setenv() and
-** create_args() (see section "NORMAL MODE" below)) and sets necessaries shell
-** variables.
-** Other shell variables may be updated by user (such as owd and home), and
-** they remain NULL until so.
-**
-*/
 static int		empty_environ_mode(t_env *e)
 {
 	char		**tmp;
@@ -45,7 +33,7 @@ static int		empty_environ_mode(t_env *e)
 		ft_print(ERROR(SH, E_PATHBROK), 2, 0);
 	builtin_setenv(e, tmp);
 	env_destroy(tmp);
-	e->cwd = getcwd(e->cwd, (size_t)0);
+	e->cwd = getcwd(e->cwd, 0);
 	if ((!(tmp = create_args(3, "setenv", "PWD", e->cwd))))
 		ft_print(ERROR(SH, E_CWDBROK), 2, 0);
 	builtin_setenv(e, tmp);
@@ -60,22 +48,6 @@ static int		empty_environ_mode(t_env *e)
 	return (1);
 }
 
-/*
-**
-** NORMAL MODE
-** +=+=+=+=+=+
-**
-** normal_load_mode() and manage_cpy() are copying environ into e->env and
-** set shell variables home, path, owd, term and cwd.
-** By the way, cwd is set using getcwd(), but the value of PWD will not be
-** updated (if user is a moron, user is a moron).
-** Note that a check is made for presence of PATH and TERM, and depending
-** on that tries to set it manually.
-** As we are using builtin_setenv() to set manually those variables, we must
-** build an array of strings, since builtin_setenv() requires a (char **)
-** as its second parameter.
-**
-*/
 static int		manage_cpy(t_env *e, int env_size, t_bool *tok, t_bool *pok)
 {
 	if (is_var("HOME", e->original_env[env_size])
@@ -121,7 +93,7 @@ static void		normal_load_mode(t_env *e, int env_size)
 		env_destroy(tmp);
 	}
 	e->cwd = NULL;
-	e->cwd = getcwd(e->cwd, (size_t)0);
+	e->cwd = getcwd(e->cwd, 0);
 }
 
 static void		set_prompt_str(t_env *e)
@@ -136,7 +108,6 @@ static void		set_prompt_str(t_env *e)
 		if (!uname(&uts_name))
 			env_setenv_var(e, "HOST", uts_name.nodename);
 	}
-
 	ft_strcat(e->prompt_str, env_get_var(e->env, "USER"));
 	ft_strcat(e->prompt_str, "@");
 	tmp_hostval = env_dup_var(e->env, "HOST");
@@ -149,18 +120,6 @@ static void		set_prompt_str(t_env *e)
 	ft_strcat(e->prompt_str, " $ ");
 }
 
-/*
-**
-** ENTRY POINT
-** +=+=+=+=+=+
-**
-** Depending on the state of environ :
-**		- Empty : load basic infos and set a basic env variable containing
-**					PATH, PWD, HOST, USER, LOGNAME and SHELL
-**		- Full (already contaning an env variable) : contents of environ are
-**					copied into e->env and shell variables are set.
-**
-*/
 int				load_shell_vars(t_env *e)
 {
 	size_t		env_size;
@@ -173,7 +132,8 @@ int				load_shell_vars(t_env *e)
 	else
 	{
 		env_size = env_get_size(e->original_env);
-		if (!(e->env = NULL) && !(e->env = malloc(sizeof(char *) * env_size + 1)))
+		if (!(e->env = NULL) &&
+				!(e->env = malloc(sizeof(char *) * env_size + 1)))
 			return (ft_print(ERROR(SH, E_ENVFAIL), 2, 0));
 		e->env[env_size--] = NULL;
 		normal_load_mode(e, (int)env_size);
