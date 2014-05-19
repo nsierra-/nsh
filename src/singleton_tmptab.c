@@ -6,12 +6,12 @@
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/19 04:41:28 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/05/19 05:15:47 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/05/19 05:46:03 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include <parser.h>
+#include <singleton.h>
 
 static void			init_tmptab(t_tmptab *tmptab, int *init)
 {

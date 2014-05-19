@@ -6,7 +6,7 @@
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/27 05:00:03 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/05/19 05:26:27 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/05/19 05:47:06 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "gnl.h"
 #include "env.h"
 #include "qd_sh.h"
+#include <parser.h>
 
 char			**prompt(t_env *e, unsigned int *stop)
 {
@@ -42,10 +43,11 @@ int					execution(t_env *e)
 	unsigned int	stop;
 	char			**lex_input;
 
+	(void)g_tok;
 	stop = false;
 	while (!stop)
 	{
-		if (!(lex_input = prompt(e, &stop)))
+		if (!(lex_input = prompt(e, &stop)) || !parser(lex_input))
 			return (0);
 		else if (lex_input[0])
 			find_and_exec(e, lex_input);

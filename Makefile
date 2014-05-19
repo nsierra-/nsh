@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/03/02 08:22:33 by nsierra-          #+#    #+#              #
-#    Updated: 2014/05/19 05:28:05 by nsierra-         ###   ########.fr        #
+#    Updated: 2014/05/19 05:44:50 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ INC_FILES	=	qd_sh.h \
 				env.h \
 				errors.h \
 				gnl.h \
+				singleton.h \
 				parser.h \
 				tokens.h
 
@@ -35,6 +36,8 @@ SRC_FILES	=	builtin_cd.c \
 				find_and_exec.c \
 				exec_binary_from_path.c \
 				lexer.c \
+				parser.c \
+				singleton_tmptab.c \
 				main.c \
 				gnl.c
 

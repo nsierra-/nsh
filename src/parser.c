@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/05/16 03:30:56 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/05/19 05:49:19 by nsierra-         ###   ########.fr       */
+/*   Created: 2014/05/19 05:31:50 by nsierra-          #+#    #+#             */
+/*   Updated: 2014/05/19 05:42:29 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_H
-# define PARSER_H
-# include <tokens.h>
-# include <singleton.h>
+#include <stdio.h>
+#include <parser.h>
+#include <qd_sh.h>
 
-typedef struct				s_token
+
+int				parser(char **lex_input)
 {
-	char					*id;
-	size_t					size;
-}							t_token;
+	t_tmptab	*tmp;
 
-static t_token g_tok[] =
-{
-	{ TOK_HEREDOC, 2 },
-	{ TOK_APPEND, 2 },
-	{ TOK_REDIR_IN, 1 },
-	{ TOK_REDIR_OUT, 1 },
-	{ TOK_PIPE, 1 },
-	{ TOK_SEMICOL, 1 },
-	{ NULL }
-};
-
-int							parser(char **lex_input);
-
-#endif
+	(void)g_tok;
+	(void)lex_input;
+	tmp = singleton(set, cmd, (char *)"test");
+	puts(tmp->tab[0]);
+	return (1);
+}
