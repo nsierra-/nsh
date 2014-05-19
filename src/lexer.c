@@ -6,7 +6,7 @@
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/16 03:11:43 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/05/19 05:22:00 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/05/19 05:26:31 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void		prepare_input(const char *usr_input, char *buf)
 	}
 }
 
-static char		**split_usr_input(const char *usr_input)
+char			**split_usr_input(const char *usr_input)
 {
 	static char	buf[MAX_INPUT_SIZE];
 
@@ -66,22 +66,4 @@ static char		**split_usr_input(const char *usr_input)
 	return (ft_split(buf, WHITE_SPACES));
 }
 
-char			**prompt(t_env *e, unsigned int *stop)
-{
-	char			*line;
-	char			**line_splitted;
 
-	line = NULL;
-	line_splitted = NULL;
-	ft_putstr(e->prompt_str);
-	if (get_next_line(0, &line) == -1)
-	{
-		*stop = true;
-		if (line)
-			free(line);
-		return (NULL);
-	}
-	line_splitted = split_usr_input(line);
-	free(line);
-	return (line_splitted);
-}

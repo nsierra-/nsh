@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/03/02 08:22:33 by nsierra-          #+#    #+#              #
-#    Updated: 2014/05/19 03:24:47 by nsierra-         ###   ########.fr        #
+#    Updated: 2014/05/19 05:28:05 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,10 +31,10 @@ SRC_FILES	=	builtin_cd.c \
 				env3.c \
 				load.c \
 				set_extra_infos.c \
-				execution.c \
+				main_loop.c \
 				find_and_exec.c \
 				exec_binary_from_path.c \
-				prompt.c \
+				lexer.c \
 				main.c \
 				gnl.c
 

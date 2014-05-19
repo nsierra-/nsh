@@ -6,7 +6,7 @@
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/26 17:03:35 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/05/16 06:28:23 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/05/19 05:26:24 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ int					exec_binary_from_path(char *path, char **env, char **argv,
 											int *not_found);
 int					ft_print(const char *str, int fd, int ret);
 char				**prompt(t_env *e, unsigned int *stop);
+char				**split_usr_input(const char *usr_input);
 
 #endif

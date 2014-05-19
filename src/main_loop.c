@@ -6,7 +6,7 @@
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/27 05:00:03 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/05/19 05:21:58 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/05/19 05:26:27 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,26 @@
 #include "gnl.h"
 #include "env.h"
 #include "qd_sh.h"
+
+char			**prompt(t_env *e, unsigned int *stop)
+{
+	char		*line;
+	char		**line_splitted;
+
+	line = NULL;
+	line_splitted = NULL;
+	ft_putstr(e->prompt_str);
+	if (get_next_line(0, &line) == -1)
+	{
+		*stop = true;
+		if (line)
+			free(line);
+		return (NULL);
+	}
+	line_splitted = split_usr_input(line);
+	free(line);
+	return (line_splitted);
+}
 
 int					execution(t_env *e)
 {
