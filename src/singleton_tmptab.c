@@ -6,7 +6,7 @@
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/19 04:41:28 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/05/19 05:46:03 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/05/19 06:14:01 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static t_tmptab		*in_singleton(t_action action, char *token)
 		while (tab.i >= 0)
 			tab.tab[tab.i--] = NULL;
 	}
-	return (NULL);
+	return (&tab);
 }
 
 static t_tmptab		*out_singleton(t_action action, char *token)
@@ -59,7 +59,7 @@ static t_tmptab		*out_singleton(t_action action, char *token)
 		while (tab.i >= 0)
 			tab.tab[tab.i--] = NULL;
 	}
-	return (NULL);
+	return (&tab);
 }
 
 static t_tmptab		*cmd_singleton(t_action action, char *token)
@@ -78,7 +78,7 @@ static t_tmptab		*cmd_singleton(t_action action, char *token)
 		while (tab.i >= 0)
 			tab.tab[tab.i--] = NULL;
 	}
-	return (NULL);
+	return (&tab);
 }
 
 t_tmptab			*singleton(t_action action, t_stype type, char *token)
