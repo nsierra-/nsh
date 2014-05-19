@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/03/02 08:22:33 by nsierra-          #+#    #+#              #
-#    Updated: 2014/05/19 05:44:50 by nsierra-         ###   ########.fr        #
+#    Updated: 2014/05/19 08:55:18 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRC_FILES	=	builtin_cd.c \
 				exec_binary_from_path.c \
 				lexer.c \
 				parser.c \
+				parser_validations.c \
 				singleton_tmptab.c \
 				main.c \
 				gnl.c

@@ -1,41 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   singleton.h                                        :+:      :+:    :+:   */
+/*   ft_rprint.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/05/19 05:43:38 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/05/19 07:16:07 by nsierra-         ###   ########.fr       */
+/*   Created: 2014/05/19 08:40:22 by nsierra-          #+#    #+#             */
+/*   Updated: 2014/05/19 08:41:34 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SINGLETON_H
-# define SINGLETON_H
-# define TMPTAB_SIZE 1024
+#include "libft.h"
 
-typedef enum		e_action
+int		ft_rprint(const char *str, int ret)
 {
-	init,
-	get,
-	set,
-	reset
-}					t_action;
-
-typedef enum		e_stype
-{
-	cmd,
-	in,
-	out,
-	all
-}					t_stype;
-
-typedef struct		s_tmptab
-{
-	char			*tab[TMPTAB_SIZE];
-	int				i;
-}					t_tmptab;
-
-t_tmptab			*singleton(t_action action, t_stype type, char *token);
-
-#endif
+	ft_putendl(str);
+	return (ret);
+}	

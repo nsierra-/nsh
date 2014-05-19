@@ -6,7 +6,7 @@
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/26 17:03:35 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/05/19 05:26:24 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/05/19 07:54:09 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,16 @@ typedef struct		s_env
 	char			*term;
 	char			prompt_str[PROMPT_MAX_SIZE];
 }					t_env;
+
+typedef struct		s_exelst
+{
+	char			**cmd;
+	char			**out;
+	char			**in;
+	int				type;
+	struct s_exelst	*next;
+	struct s_exelat	*prev;
+}					t_exelst;
 
 /*
 ** Makes (at most) two arguments, which will respectively be the name and the

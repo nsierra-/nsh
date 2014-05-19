@@ -6,12 +6,14 @@
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/16 03:30:56 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/05/19 05:49:19 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/05/19 08:56:33 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSER_H
 # define PARSER_H
+# define PARS_ERR "Parse error.\n"
+# include <qd_sh.h>
 # include <tokens.h>
 # include <singleton.h>
 
@@ -32,6 +34,11 @@ static t_token g_tok[] =
 	{ NULL }
 };
 
+static int					g_parse_error;
+
 int							parser(char **lex_input);
+int							is_input_token(const char *token);
+int							end_of_command(const char *token);
+int							is_output_token(const char *token);
 
 #endif

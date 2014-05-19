@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 11:28:34 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/05/16 05:56:38 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/05/19 08:43:04 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ void			ft_putstr(const char *str);
 char			*ft_strcat(char *dest, const char *src);
 char			*ft_pathbuilder(char *path, char *file);
 void			ft_strclean(char *str, size_t len);
+int				ft_rprint(const char *str, int ret);
 
 #endif
