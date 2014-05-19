@@ -6,7 +6,7 @@
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/19 05:31:50 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/05/19 09:27:05 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/05/19 10:58:23 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,31 +37,7 @@ static void		get_input_will(char **lex_input, int *i)
 	*i = *i + 1;
 }
 
-static void		print_singletons(void)
-{
-	char		**tmp;
-	int			i;
-
-	i = 0;
-	tmp = singleton(get, cmd, NULL)->tab;
-	ft_putendl("Singleton Commande :");
-	while (tmp[i] != NULL)
-		printf("\t=> \"%s\"\n", tmp[i++]);
-	ft_putendl("");
-	i = 0;
-	tmp = singleton(get, out, NULL)->tab;
-	ft_putendl("Singleton Output :");
-	while (tmp[i] != NULL)
-		printf("\t=> \"%s\"\n", tmp[i++]);
-	ft_putendl("");
-	i = 0;
-	tmp = singleton(get, in, NULL)->tab;
-	ft_putendl("Singleton Input :");
-	while (tmp[i] != NULL)
-		printf("\t=> \"%s\"\n", tmp[i++]);
-}
-
-static t_exelst	*get_cmd(char **lex_input, int *i)
+static void		get_cmd(char **lex_input, int *i)
 {
 	while (!g_parse_error && !end_of_command(lex_input[*i]))
 	{
@@ -75,8 +51,6 @@ static t_exelst	*get_cmd(char **lex_input, int *i)
 			*i = *i + 1;
 		}
 	}
-	print_singletons();
-	return (NULL);
 }	
 
 int				parser(char **lex_input)
@@ -87,7 +61,10 @@ int				parser(char **lex_input)
 	g_parse_error = 0;
 	i = 0;
 	singleton(all, init, NULL);
+	while (lex_input[i] != NULL)
+	{
 		get_cmd(lex_input, &i);
+	}
 	singleton(all, reset, NULL);
 	return (1);
 }
