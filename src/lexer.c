@@ -6,7 +6,7 @@
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/16 03:11:43 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/05/19 05:26:31 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/05/19 11:00:56 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,3 @@ char			**split_usr_input(const char *usr_input)
 	prepare_input(usr_input, buf);
 	return (ft_split(buf, WHITE_SPACES));
 }
-
-

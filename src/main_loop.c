@@ -6,7 +6,7 @@
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/27 05:00:03 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/05/19 05:47:06 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/05/19 11:02:00 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 #include "qd_sh.h"
 #include <parser.h>
 
-char			**prompt(t_env *e, unsigned int *stop)
+char				**prompt(t_env *e, unsigned int *stop)
 {
-	char		*line;
-	char		**line_splitted;
+	char			*line;
+	char			**line_splitted;
 
 	line = NULL;
 	line_splitted = NULL;

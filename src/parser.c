@@ -6,7 +6,7 @@
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/19 05:31:50 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/05/19 10:58:23 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/05/19 11:01:24 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void		get_cmd(char **lex_input, int *i)
 			*i = *i + 1;
 		}
 	}
-}	
+}
 
 int				parser(char **lex_input)
 {

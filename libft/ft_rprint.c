@@ -6,7 +6,7 @@
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/19 08:40:22 by nsierra-          #+#    #+#             */
-/*   Updated: 2014/05/19 08:41:34 by nsierra-         ###   ########.fr       */
+/*   Updated: 2014/05/19 11:00:34 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,4 @@ int		ft_rprint(const char *str, int ret)
 {
 	ft_putendl(str);
 	return (ret);
-}	
+}
