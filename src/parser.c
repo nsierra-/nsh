@@ -60,11 +60,11 @@ int				parser(char **lex_input)
 	(void)g_tok;
 	g_parse_error = 0;
 	i = 0;
-	singleton(all, init, NULL);
+	singleton(init, all, NULL);
 	while (lex_input[i] != NULL)
 	{
 		get_cmd(lex_input, &i);
 	}
-	singleton(all, reset, NULL);
+	singleton(reset, all, NULL);
 	return (1);
 }

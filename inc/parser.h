@@ -31,7 +31,7 @@ static t_token g_tok[] =
 	{ TOK_REDIR_OUT, 1 },
 	{ TOK_PIPE, 1 },
 	{ TOK_SEMICOL, 1 },
-	{ NULL }
+	{ NULL, 0 }
 };
 
 static int					g_parse_error;
